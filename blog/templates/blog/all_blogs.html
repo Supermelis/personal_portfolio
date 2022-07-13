@@ -1,11 +1,11 @@
 <h1>Blog</h1>
-<h1>Uliss has written {{ articles.count }} article{{ articles.count|pluralize }}</h1>
+<h2>Uliss has written {{ articles.count }} article{{ articles.count|pluralize }}</h2>
 
-{% for article in articles%}
+{% for article in articles %}
 
 <a href="{% url 'blog:detail' article.id %}"><h2>{{ article.title }}</h2></a>
-<h5>{{ article.blogDate|date:'M-d-Y}}</h5>
-<p>{{ article.description }}</p>
+<h5>{{ article.blogDate|date:'M-d-Y'}}</h5>
+<p>{{ article.description|trancatechars:100 }}</p>
 
 {% endfor %}
 
