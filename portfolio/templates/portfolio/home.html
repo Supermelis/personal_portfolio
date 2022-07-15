@@ -1,8 +1,16 @@
-<h1>This is the homepage</h1>
-<a href="{% url 'blog:all_blogs' %}">Blog</a>
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<style>
+   .text {
+    text-align:  center;
+   }
+  </style>
+<div class="text"><h1>This is the homepage</h1>
 <br>
 {% load static %}
 <img src="{% static 'portfolio/main_picture.jpg' %}" height="400" width="300">
+<br></div>
 {% for project in projects  %}
 
 <img src="{{ project.image.url }}" height="240" width="240">
@@ -13,3 +21,6 @@
 {% endif %}
 
 {% endfor %}
+{% endblock %}
+
+

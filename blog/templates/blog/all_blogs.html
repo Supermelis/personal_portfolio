@@ -1,3 +1,7 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
 <h1>Blog</h1>
 <h2>Uliss has written {{ articles.count }} article{{ articles.count|pluralize }}</h2>
 
@@ -5,8 +9,11 @@
 
 <a href="{% url 'blog:detail' article.id %}"><h2>{{ article.title }}</h2></a>
 <h5>{{ article.blogDate|date:'M-d-Y'}}</h5>
-<p>{{ article.description|trancatechars:100 }}</p>
+<p>{{ article.description|truncatechars:100 }}</p>
 
 {% endfor %}
 
 <a href="{% url 'home' %}">Back to main page</a>
+
+{% endblock %}
+
